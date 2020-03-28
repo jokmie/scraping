@@ -13,7 +13,7 @@ from base64 import b64decode
 ## DB CON // TEMP SQLITE
 conn = sqlite3.connect('products.db')
 c = conn.cursor()
-c.execute('''CREATE TABLE IF NOT EXISTS PRODUCTS
+c.execute('''CREATE TABLE IF NOT EXISTS PRODUCTS_STAGING
              (timestamp text, name text, price real, unitprice text, category text, propterties text)''')
 
 ## VARIABLES
@@ -60,12 +60,22 @@ def getProductDetails(url):
                 props.append(prop+':'+value)
 
         propsstring = str(props).replace('\'','"')
-        query = f"INSERT INTO PRODUCTS VALUES ('{str(datetime.now())}','{str(name)}',{str(price)},'{str(unitprice)}','{category}','{propsstring}')"
+        ### Insert into DB
+        query = f"INSERT INTO PRODUCTS_STAGING VALUES ('{str(datetime.now())}','{str(name)}',{str(price)},'{str(unitprice)}','{category}','{propsstring}')"
         c.execute(query)
         conn.commit()
     logger.info(f"Stopped worker for {url}.")
     return
 
+## Clean up in the data
+def generateDistinctRowsHelper():
+    c.execute('''CREATE TABLE IF NOT EXISTS PRODUCTS
+                (timestamp text, name text, price real, unitprice text, category text, propterties text)''')
+    c.execute('''DELETE FROM PRODUCTS''')
+    conn.commit()
+    c.execute('''INSERT INTO PRODUCTS SELECT MAX(timestamp), name, price, unitprice, category, propterties FROM PRODUCTS_STAGING GROUP BY name, price, unitprice, category, propterties''')
+    c.execute('''DELETE FROM PRODUCTS_STAGING''')
+    conn.commit()
 
 def runScriptMulitprocess():
     allsiteurls = getAllSiteUrls()
@@ -80,7 +90,7 @@ def runScriptMulitprocess():
     # Wait for all to complete before continuing
     for job in jobs:
         job.join() 
-
+    generateDistinctRowsHelper()
     logger.info("stop: "+str(datetime.now()))
 
 
@@ -92,7 +102,6 @@ while True:
         logger.info("Start working")
         print("Start working")
         runScriptMulitprocess()
-        conn.close()
     else:
         logger.info("Wait 60 seconds...")
         print("Wait 60 seconds")
@@ -106,7 +115,19 @@ while True:
 ## TODO: TRAVIS
 ## TODO: Pip freeze
 ## TODO: Docker container
-## TODO: ANNEN DB
+## TODO: Other DB
 ## TODO: Secrets + config i google
-## TODO: unngå doobelinsert
+## TODO: unngå dobbel-insert
 ## TODO: Hent basis info fra produkt-kategorisiden
+
+
+
+# FOR LATER UPDATE OR INSERT
+## INSERT RECORDS
+# qry_findByName = f"Select * FROM PRODUCTS  where name='{name}'"
+# existingRecored = c.execute(qry_findByName).fetchone()
+# if existingRecored != None:
+#     if data[2] != price | data[3] != unitprice | data[4] != category | data[5] != propsstring:
+#         qry_delete = f"DELETE FROM PRODUCTS WHERE name='{name}'"
+#         c.execute(qry_delete)
+#         conn.commit()
