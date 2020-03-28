@@ -17,7 +17,7 @@ c.execute('''CREATE TABLE IF NOT EXISTS PRODUCTS
 
 ## VARIABLES
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'}
-pagebase = 'https://kolonial.no'
+pagebase = b64decode('aHR0cHM6Ly9rb2xvbmlhbC5ubw==').decode("utf-8")
 logging.basicConfig(filename="log.txt",level=logging.INFO, filemode='w')
 logger = logging.getLogger("main")
 logger.info("start: "+str(datetime.now()))
