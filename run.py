@@ -8,7 +8,7 @@ import logging
 import multiprocessing
 import time
 from base64 import b64decode
-
+import exportToCsv
 
 ## DB CON // TEMP SQLITE
 conn = sqlite3.connect('products.db')
@@ -76,6 +76,7 @@ def generateDistinctRowsHelper():
     c.execute('''INSERT INTO PRODUCTS SELECT MAX(timestamp), name, price, unitprice, category, propterties FROM PRODUCTS_STAGING GROUP BY name, price, unitprice, category, propterties''')
     c.execute('''DELETE FROM PRODUCTS_STAGING''')
     conn.commit()
+    exportToCsv
 
 def runScriptMulitprocess():
     allsiteurls = getAllSiteUrls()

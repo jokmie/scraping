@@ -8,8 +8,8 @@ print(c.execute('''select count(*) from PRODUCTS''').fetchone())
 #print("######DISTINCT PRODUCTS######")
 #print(c.execute('''select distinct(name) from PRODUCTS''').fetchall())
 
-print("######DISTINCT PRODUCTS######")
-print(c.execute('''select * from PRODUCTS limit 10''').fetchmany(10))
+print("######FIRST 3 ROWS######")
+print(c.execute('''select * from PRODUCTS limit 3''').fetchmany(3))
 
 #c.close()
 
