@@ -3,21 +3,8 @@ language: bash
 dist: trusty
 env:
   global:
-  - GIT_RESET_IF_BRANCH=${GIT_RESET_IF_BRANCH:-release}
-  - GIT_RESET_BRANCH=${GIT_RESET_BRANCH:-develop}
-  - BRANCH=${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}
-  - CLUSTER=$(if [ "$BRANCH" == "release" ]; then echo "prod"; else echo "stage";fi)
-  - GITHUB_AUTH="${GITHUB_TOKEN}:x-oauth-basic"
-  - KUBE_PATCH="$(curl -L -u ${GITHUB_AUTH} ${KUBE_COMMON_REPO}/projects/${APPLICATION_NAME}/deployment-patch-resources-stage.yaml
-    | tee /dev/stderr)"
+    -xxx
 before_install:
-- openssl aes-256-cbc -K $encrypted_5e8621fce4a7_key -iv $encrypted_5e8621fce4a7_iv
-  -in credentials.tar.gz.enc -out credentials.tar.gz -d
-- tar -xzf credentials.tar.gz
-- mkdir -p scripts
-- curl -L -u "${GITHUB_TOKEN}:x-oauth-basic" https://github.schibsted.io/SNOAM/travis-utils/archive/master.tar.gz
-  | tar -xz -C scripts --strip-components 1
-- chmod +x scripts/*.sh
+- xxx
 after_success:
-- BRANCHES_TO_MERGE_REGEX='^(bug|feature)/' BRANCH_TO_MERGE_INTO=develop scripts/travis-automerge.sh
-- scripts/reset-branch.sh
+- xxx

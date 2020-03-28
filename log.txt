@@ -1,4 +1,4 @@
-INFO:main:start: 2020-03-28 18:07:10.372832
+INFO:main:start: 2020-03-28 18:27:48.685868
 INFO:main:Start working
 INFO:main:Added worker for /kategorier/20-frukt-og-gront/ to queue.
 INFO:main:Added worker for /kategorier/488-mathall/ to queue.
@@ -44,27 +44,11 @@ INFO:main:Stopped worker for /kategorier/424-pizza-og-taco/.
 INFO:main:Stopped worker for /kategorier/37-olje-og-krydder/.
 INFO:main:Stopped worker for /kategorier/163-torkepapir-og-vaskemidler/.
 INFO:main:Stopped worker for /kategorier/142-oster/.
-INFO:main:Stopped worker for /kategorier/67-snacks-og-godteri/.
+INFO:main:Stopped worker for /kategorier/373-hygieneartikler/.
 INFO:main:Stopped worker for /kategorier/365-legemidler-og-helsekost/.
 INFO:main:Stopped worker for /kategorier/394-trening/.
-INFO:main:Stopped worker for /kategorier/373-hygieneartikler/.
+INFO:main:Stopped worker for /kategorier/67-snacks-og-godteri/.
 INFO:main:Stopped worker for /kategorier/128-dyremat/.
 INFO:main:Stopped worker for /kategorier/457-varme-drikker/.
-INFO:main:Stopped worker for /kategorier/48-melk-meieriprodukter-og-egg/.
 INFO:main:Stopped worker for /kategorier/283-fisk-og-sjomat/.
-INFO:main:Stopped worker for /kategorier/85-hus-og-hjem/.
-INFO:main:Stopped worker for /kategorier/448-asiatisk/.
-INFO:main:Stopped worker for /kategorier/60-drikkevarer/.
-INFO:main:Stopped worker for /kategorier/42-palegg/.
-INFO:main:Stopped worker for /kategorier/32-middager-og-tilbehor/.
-INFO:main:Stopped worker for /kategorier/79-shampo-sape-og-hudpleie/.
-INFO:main:Stopped worker for /kategorier/488-mathall/.
-INFO:main:Stopped worker for /kategorier/73-barneprodukter/.
-INFO:main:Stopped worker for /kategorier/1-brod-og-frokostblandinger/.
-INFO:main:Stopped worker for /kategorier/26-kjott-og-kylling/.
-INFO:main:Stopped worker for /kategorier/462-clas-ohlson/.
-INFO:main:Stopped worker for /kategorier/20-frukt-og-gront/.
-INFO:main:stop: 2020-03-28 18:08:06.114795
-INFO:main:Wait 60 seconds...
-INFO:main:Wait 60 seconds...
-INFO:main:Wait 60 seconds...
+INFO:main:Stopped worker for /kategorier/48-melk-meieriprodukter-og-egg/.
