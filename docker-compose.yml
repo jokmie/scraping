@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+
+  data-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python run.py
+    volumes:
+      - static_volume:/staticdb
+      - media_volume:/media
+    expose:
+      - 5000
+
+  #cronjob:
+   # image: cron    
+   
+  caddy:
+    image: abiosoft/caddy:no-stats
+    volumes:
+      - .:/etc/Caddyfile:ro
+    ports:
+      - 80:80
+      - 443:443
+
+volumes:
+  static_volume:
+  media_volume:
