@@ -8,8 +8,11 @@
 - docker build -t scraper .
 - docker run --name scraper scraper 
 
-## get csv file from docker container og rund querys agsinst the table via dbchecker e.g.
+## get csv file from docker container og rund querys against the table via dbchecker e.g.
 - docker exec -it $(docker ps -aqf "name=scraper") bin/bash
-- python dbchecker.py
-- cat dataset.csv
+- docker exec -it $(docker ps -aqf "name=scraper") python dbchecker.py 
+- sudo docker cp $(docker ps -aqf "name=scraper"):dataset.csv . 
+
+## Once you have the csv file you can run the tableau workbook
+
 
