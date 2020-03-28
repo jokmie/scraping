@@ -10,3 +10,5 @@ print(c.execute('''select count(*) from PRODUCTS''').fetchone())
 
 print("######DISTINCT PRODUCTS######")
 print(c.execute('''select * from PRODUCTS limit 10''').fetchmany(10))
+
+c.close()

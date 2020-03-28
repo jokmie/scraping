@@ -7,6 +7,7 @@ from datetime import datetime
 import logging
 import multiprocessing
 import time
+from base64 import b64decode
 
 
 ## DB CON // TEMP SQLITE
