@@ -10,6 +10,7 @@
 
 ## get csv file from docker container og rund querys against the table via dbchecker e.g.
 - docker exec -it $(docker ps -aqf "name=scraper") bin/bash
+- docker exec -it $(docker ps -aqf "name=scraper") cat log.txt
 - docker exec -it $(docker ps -aqf "name=scraper") python dbchecker.py 
 - sudo docker cp $(docker ps -aqf "name=scraper"):dataset.csv . 
 
