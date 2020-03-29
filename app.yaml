@@ -2,8 +2,7 @@ runtime: python
 env: flex
 env_variables:
   FLASK_APP: main.py
-entrypoint: flask run
-#entrypoint: gunicorn -b :$PORT --workers=5 --threads=2 main:app
+entrypoint: gunicorn -b :$PORT --workers=5 --threads=2 main:app
 runtime_config:
   python_version: 3
 
