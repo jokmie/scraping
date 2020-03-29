@@ -5,3 +5,5 @@
 products.db
 log.txt
 dataset.csv
+venv3
+__pycache__
