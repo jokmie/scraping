@@ -1,0 +1,4 @@
+cron:
+- description: "Run fetch every hour"
+  url: /
+  schedule: every 1 hours
