@@ -17,5 +17,3 @@
 ## Once you have the csv file you can run the tableau workbook
 - TabbisExample.twb
 - Alternatively run the app locally with "python main.py"
-
-
